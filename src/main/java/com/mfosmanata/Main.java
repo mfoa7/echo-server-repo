@@ -12,6 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         try(ServerSocket serverSocket = new ServerSocket(5000)) {
+            System.out.println("Listening on port 5000");
             Socket socket = serverSocket.accept();
             System.out.println("Client Connected");
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -19,6 +20,7 @@ public class Main {
 
             while (true){
                 String echoString = input.readLine();
+                System.out.println("Input coming from client : "+ echoString);
                 if (echoString.equals("exit")){
                     break;
                 }
